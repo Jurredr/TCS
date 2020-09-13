@@ -1,6 +1,7 @@
 package me.jurre.tcs.util;
 
 import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
@@ -50,6 +51,16 @@ public class ItemStackBuilder {
         return item;
     }
 
+    public static ItemStack build(Material material, String name, boolean enchant) {
+        ItemStack item = new ItemStack(material);
+        ItemMeta meta = item.getItemMeta();
+        meta.setDisplayName(name);
+        meta.addEnchant(Enchantment.ARROW_INFINITE, 9, true);
+        item.setItemMeta(meta);
+
+        return item;
+    }
+
     public static ItemStack build(Material material, int customModelData) {
         ItemStack item = new ItemStack(material);
         ItemMeta meta = item.getItemMeta();
@@ -66,6 +77,17 @@ public class ItemStackBuilder {
         meta.setDisplayName(name);
         meta.setLore(lore);
         item.setItemMeta(meta);
+
+        return item;
+    }
+
+    public static ItemStack buildHead(String name, String owner) {
+        ItemStack item = new ItemStack(Material.PLAYER_HEAD);
+        SkullMeta meta = (SkullMeta) item.getItemMeta();
+        meta.setOwner(owner);
+        meta.setDisplayName(name);
+        item.setItemMeta(meta);
+        item.setAmount(1);
 
         return item;
     }

@@ -1,6 +1,7 @@
 package me.jurre.tcs;
 
 import me.jurre.tcs.util.ItemStackBuilder;
+import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
@@ -12,6 +13,8 @@ public class CustomItems {
     public CustomItems(Tcs plugin) {
         this.plugin = plugin;
     }
+
+    public ItemStack powerEgg = ItemStackBuilder.build(Material.EGG, "§ePower Egg", true);
 
     // Common
     public ItemStack pigHead = ItemStackBuilder.buildHead("§ePig Head", new ArrayList() {{

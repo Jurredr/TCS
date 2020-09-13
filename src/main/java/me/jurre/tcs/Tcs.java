@@ -23,10 +23,10 @@ public final class Tcs extends JavaPlugin {
         getServer().getConsoleSender().sendMessage("[TCS] Plugin successfully enabled!");
         registerEvents();
 
+        this.customItems = new CustomItems(this);
+
         CustomRecipes customRecipes = new CustomRecipes(this);
         customRecipes.loadRecipes();
-
-        this.customItems = new CustomItems(this);
 
         new BukkitRunnable() {
             @Override
