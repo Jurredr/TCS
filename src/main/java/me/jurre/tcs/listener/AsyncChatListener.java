@@ -33,14 +33,14 @@ public class AsyncChatListener implements Listener {
                     + ", " + location.getBlockZ() + ChatColor.RESET));
         }
 
-        for (Player p : Bukkit.getOnlinePlayers()) {
-            if (e.getMessage().contains(p.getName()) && player != p) {
-                p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1.0F, 12.0F);
-
-                e.getRecipients().remove(p);
-                String personalizedMessage = e.getMessage().replace(p.getName(), ChatColor.YELLOW + p.getName() + ChatColor.RESET);
-                p.sendMessage("§7" + player.getDisplayName() + ":§r " + personalizedMessage);
-            }
-        }
+//        for (Player p : Bukkit.getOnlinePlayers()) {
+//            if (e.getMessage().contains(p.getName()) && player != p) {
+//                p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1.0F, 12.0F);
+//
+//                e.getRecipients().remove(p);
+//                String personalizedMessage = e.getMessage().replace(p.getName(), ChatColor.YELLOW + p.getName() + ChatColor.RESET);
+//                p.sendMessage("§7" + player.getDisplayName() + ":§r " + personalizedMessage);
+//            }
+//        }
     }
 }
