@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: /Users/jurrederuiter/Desktop/Projecten/Minecraft/TCS/src/mai
+ n/java
+
