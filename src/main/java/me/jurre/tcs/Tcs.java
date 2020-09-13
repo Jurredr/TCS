@@ -16,10 +16,17 @@ import java.util.TimeZone;
 
 public final class Tcs extends JavaPlugin {
 
+    private CustomItems customItems;
+
     @Override
     public void onEnable() {
         getServer().getConsoleSender().sendMessage("[TCS] Plugin successfully enabled!");
         registerEvents();
+
+        CustomRecipes customRecipes = new CustomRecipes(this);
+        customRecipes.loadRecipes();
+
+        this.customItems = new CustomItems(this);
 
         new BukkitRunnable() {
             @Override
@@ -38,11 +45,15 @@ public final class Tcs extends JavaPlugin {
         }.runTaskTimerAsynchronously(this, 0L, 5L);
     }
 
+    public CustomItems getCustomItems() {
+        return customItems;
+    }
+
     private void registerEvents() {
         getServer().getPluginManager().registerEvents(new DeathListener(), this);
         getServer().getPluginManager().registerEvents(new JoinQuitListener(), this);
         getServer().getPluginManager().registerEvents(new AsyncChatListener(this), this);
-        getServer().getPluginManager().registerEvents(new MonsterKillListener(), this);
+        getServer().getPluginManager().registerEvents(new MonsterKillListener(this), this);
         getServer().getPluginManager().registerEvents(new ServerListPingListener(), this);
     }
 
