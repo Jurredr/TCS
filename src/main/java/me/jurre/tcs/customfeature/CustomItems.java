@@ -69,6 +69,11 @@ public class CustomItems {
         add("§7Rarity: §bRare");
     }}, "MHF_Ocelot");
 
+    public ItemStack drownedHead = ItemStackBuilder.buildHead("§eDrowned Head", new ArrayList() {{
+        add("§7The head of a drowned.");
+        add("§7Rarity: §bRare");
+    }}, "thakeon");
+
     // Epic
     public ItemStack villagerHead = ItemStackBuilder.buildHead("§eVillager Head", new ArrayList() {{
         add("§7The head of a villager.");

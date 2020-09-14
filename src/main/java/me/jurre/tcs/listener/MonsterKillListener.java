@@ -78,6 +78,11 @@ public class MonsterKillListener implements Listener {
                     e.getDrops().add(plugin.getCustomItems().ocelotHead);
                 }
                 break;
+            case DROWNED:
+                if (chance <= 0.03f) {
+                    e.getDrops().add(plugin.getCustomItems().drownedHead);
+                }
+                break;
 
             // Epic
             case VILLAGER:
