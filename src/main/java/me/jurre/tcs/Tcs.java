@@ -1,6 +1,9 @@
 package me.jurre.tcs;
 
 import me.jurre.tcs.listener.*;
+import me.jurre.tcs.player.PlayerDataFile;
+import me.jurre.tcs.player.PlayerDataManager;
+import me.jurre.tcs.player.TcsPlayer;
 import me.jurre.tcs.util.EyeDirection;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
@@ -16,17 +19,47 @@ import java.util.TimeZone;
 
 public final class Tcs extends JavaPlugin {
 
+    private PlayerDataFile playerDataFile;
+    private PlayerDataManager playerDataManager;
     private CustomItems customItems;
+    private CustomRecipes customRecipes;
+
+    public PlayerDataFile getPlayerDataFile() {
+        return playerDataFile;
+    }
+    public PlayerDataManager getPlayerDataManager() {
+        return playerDataManager;
+    }
+    public CustomItems getCustomItems() {
+        return customItems;
+    }
+    public CustomRecipes getCustomRecipes() {
+        return customRecipes;
+    }
 
     @Override
     public void onEnable() {
-        getServer().getConsoleSender().sendMessage("[TCS] Plugin successfully enabled!");
+        getConfig().options().copyDefaults(true);
+        saveConfig();
+
+        this.playerDataFile = new PlayerDataFile(this);
+        playerDataFile.setup();
+
+        this.playerDataManager = new PlayerDataManager(this);
+
         registerEvents();
 
         this.customItems = new CustomItems(this);
 
-        CustomRecipes customRecipes = new CustomRecipes(this);
+        this.customRecipes = new CustomRecipes(this);
         customRecipes.loadRecipes();
+
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            TcsPlayer tcsPlayer = getPlayerDataFile().getTcsPlayerData(player);
+            getPlayerDataManager().addOnlineTcsPlayer(player.getUniqueId(), tcsPlayer);
+        }
+
+        getServer().getConsoleSender().sendMessage("[TCS] Plugin successfully enabled!");
 
         new BukkitRunnable() {
             @Override
@@ -45,13 +78,9 @@ public final class Tcs extends JavaPlugin {
         }.runTaskTimerAsynchronously(this, 0L, 5L);
     }
 
-    public CustomItems getCustomItems() {
-        return customItems;
-    }
-
     private void registerEvents() {
         getServer().getPluginManager().registerEvents(new DeathListener(), this);
-        getServer().getPluginManager().registerEvents(new JoinQuitListener(), this);
+        getServer().getPluginManager().registerEvents(new JoinQuitListener(this), this);
         getServer().getPluginManager().registerEvents(new AsyncChatListener(this), this);
         getServer().getPluginManager().registerEvents(new MonsterKillListener(this), this);
         getServer().getPluginManager().registerEvents(new ServerListPingListener(), this);
@@ -59,6 +88,12 @@ public final class Tcs extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            if (playerDataManager.isOnlineTcsPlayer(player.getUniqueId())) {
+                playerDataManager.onPlayerQuit(player);
+            }
+        }
+
         getServer().getConsoleSender().sendMessage("[TCS] Plugin has been disabled!");
     }
 }
