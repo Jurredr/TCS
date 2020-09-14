@@ -1,5 +1,7 @@
 package me.jurre.tcs;
 
+import me.jurre.tcs.customfeature.CustomItems;
+import me.jurre.tcs.customfeature.CustomRecipes;
 import me.jurre.tcs.listener.*;
 import me.jurre.tcs.player.PlayerDataFile;
 import me.jurre.tcs.player.PlayerDataManager;

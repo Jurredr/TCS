@@ -1,5 +1,6 @@
-package me.jurre.tcs;
+package me.jurre.tcs.customfeature;
 
+import me.jurre.tcs.Tcs;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;

@@ -45,7 +45,7 @@ public class PlayerDataManager {
     public void onPlayerQuit(Player player) {
         UUID uuid = player.getUniqueId();
         if (isOnlineTcsPlayer(uuid)) {
-            plugin.getPlayerDataFile().savePlayerData(uuid, onlineTcsPlayers.get(uuid));
+            plugin.getPlayerDataFile().savePlayerData(player, onlineTcsPlayers.get(uuid));
             onlineTcsPlayers.remove(uuid);
         }
     }

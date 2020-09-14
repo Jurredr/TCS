@@ -1,5 +1,6 @@
-package me.jurre.tcs;
+package me.jurre.tcs.customfeature;
 
+import me.jurre.tcs.Tcs;
 import me.jurre.tcs.util.ItemStackBuilder;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;

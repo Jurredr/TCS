@@ -62,9 +62,9 @@ public class PlayerDataFile {
         TcsPlayer tcsPlayer = new TcsPlayer(player, plugin);
 
         if (fileConfiguration.getConfigurationSection(uuid.toString()).contains("donator") && fileConfiguration.getConfigurationSection(uuid.toString()).contains("coins")) {
-            tcsPlayer.setCoins(fileConfiguration.getConfigurationSection(uuid.toString()).getInt("coins"));
-            tcsPlayer.setDonator(fileConfiguration.getConfigurationSection(uuid.toString()).getBoolean("donator"));
-            tcsPlayer.setNickname(fileConfiguration.getConfigurationSection(uuid.toString()).getString("nickname"));
+            tcsPlayer.setCoins(fileConfiguration.getConfigurationSection(uuid.toString()).getInt(".coins"));
+            tcsPlayer.setDonator(fileConfiguration.getConfigurationSection(uuid.toString()).getBoolean(".donator"));
+            tcsPlayer.setNickname(fileConfiguration.getConfigurationSection(uuid.toString()).getString(".nickname"));
         }
 
         return tcsPlayer;
@@ -73,9 +73,10 @@ public class PlayerDataFile {
     public TcsPlayer createPlayerData(Player player) {
         UUID uuid = player.getUniqueId();
         if (!containsData(uuid)) {
-            fileConfiguration.set(uuid.toString() + "coins", 0);
-            fileConfiguration.set(uuid.toString() + "donator", false);
-            fileConfiguration.set(uuid.toString() + "nickname", null);
+            fileConfiguration.set(uuid.toString() + ".name", player.getName());
+            fileConfiguration.set(uuid.toString() + ".coins", 0);
+            fileConfiguration.set(uuid.toString() + ".donator", false);
+            fileConfiguration.set(uuid.toString() + ".nickname", null);
 
             TcsPlayer tcsPlayer = new TcsPlayer(player, plugin);
             tcsPlayer.setCoins(0);
@@ -88,10 +89,12 @@ public class PlayerDataFile {
         }
     }
 
-    public void savePlayerData(UUID uuid, TcsPlayer tcsPlayer) {
-        fileConfiguration.set(uuid.toString() + "coins", tcsPlayer.getCoins());
-        fileConfiguration.set(uuid.toString() + "donator", tcsPlayer.isDonator());
-        fileConfiguration.set(uuid.toString() + "nickname", tcsPlayer.getNickname());
+    public void savePlayerData(Player player, TcsPlayer tcsPlayer) {
+        UUID uuid = player.getUniqueId();
+        fileConfiguration.set(uuid.toString() + ".name", player.getName());
+        fileConfiguration.set(uuid.toString() + ".coins", tcsPlayer.getCoins());
+        fileConfiguration.set(uuid.toString() + ".donator", tcsPlayer.isDonator());
+        fileConfiguration.set(uuid.toString() + ".nickname", tcsPlayer.getNickname());
 
         save();
     }
