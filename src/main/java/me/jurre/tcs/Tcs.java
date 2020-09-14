@@ -1,6 +1,8 @@
 package me.jurre.tcs;
 
+import me.jurre.tcs.command.DiscordCommand;
 import me.jurre.tcs.command.DonatorCommand;
+import me.jurre.tcs.command.MapCommand;
 import me.jurre.tcs.command.NicknameCommand;
 import me.jurre.tcs.customfeature.CustomItems;
 import me.jurre.tcs.customfeature.CustomRecipes;
@@ -92,6 +94,8 @@ public final class Tcs extends JavaPlugin {
     }
 
     private void registerCommands() {
+        getCommand("map").setExecutor(new MapCommand(this));
+        getCommand("discord").setExecutor(new DiscordCommand(this));
         getCommand("donator").setExecutor(new DonatorCommand(this));
         getCommand("nickname").setExecutor(new NicknameCommand(this));
     }

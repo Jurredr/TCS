@@ -12,3 +12,9 @@ commands:
   nickname:
     description: "change nickname"
     usage: /nickname
+  discord:
+    description: "server invite link"
+    usage: /discord
+  map:
+    description: "dynmap link"
+    usage: /map
