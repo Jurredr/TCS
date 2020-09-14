@@ -1,5 +1,7 @@
 package me.jurre.tcs;
 
+import me.jurre.tcs.command.DonatorCommand;
+import me.jurre.tcs.command.NicknameCommand;
 import me.jurre.tcs.customfeature.CustomItems;
 import me.jurre.tcs.customfeature.CustomRecipes;
 import me.jurre.tcs.listener.*;
@@ -50,6 +52,7 @@ public final class Tcs extends JavaPlugin {
         this.playerDataManager = new PlayerDataManager(this);
 
         registerEvents();
+        registerCommands();
 
         this.customItems = new CustomItems(this);
 
@@ -86,6 +89,11 @@ public final class Tcs extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new AsyncChatListener(this), this);
         getServer().getPluginManager().registerEvents(new MonsterKillListener(this), this);
         getServer().getPluginManager().registerEvents(new ServerListPingListener(), this);
+    }
+
+    private void registerCommands() {
+        getCommand("donator").setExecutor(new DonatorCommand(this));
+        getCommand("nickname").setExecutor(new NicknameCommand(this));
     }
 
     @Override

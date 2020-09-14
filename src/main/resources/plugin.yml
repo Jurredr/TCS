@@ -5,3 +5,10 @@ api-version: 1.13
 authors: [Jurre]
 description: Unofficial TCS Minecraft plugin
 website: https://www.jurre.me/
+commands:
+  donator:
+    description: "set donators"
+    usage: /donator
+  nickname:
+    description: "change nickname"
+    usage: /nickname

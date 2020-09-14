@@ -32,6 +32,10 @@ public class TcsPlayer {
         this.nickname = nickname;
     }
 
+    public boolean hasNickname() {
+        return this.nickname != null;
+    }
+
     public void removeNickname() {
         this.nickname = null;
     }
