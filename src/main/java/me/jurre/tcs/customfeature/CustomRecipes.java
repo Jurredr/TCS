@@ -84,9 +84,9 @@ public class CustomRecipes {
         plugin.getServer().addRecipe(ocelotEgg);
 
         ShapedRecipe drownedEgg = new ShapedRecipe(new NamespacedKey(plugin, "drownedEgg"), new ItemStack(Material.DROWNED_SPAWN_EGG));
-        ocelotEgg.shape("EEE", "EHE", "EEE");
-        ocelotEgg.setIngredient('E', new RecipeChoice.ExactChoice(plugin.getCustomItems().powerEgg));
-        ocelotEgg.setIngredient('H', new RecipeChoice.ExactChoice(plugin.getCustomItems().drownedHead));
+        drownedEgg.shape("EEE", "EHE", "EEE");
+        drownedEgg.setIngredient('E', new RecipeChoice.ExactChoice(plugin.getCustomItems().powerEgg));
+        drownedEgg.setIngredient('H', new RecipeChoice.ExactChoice(plugin.getCustomItems().drownedHead));
         plugin.getServer().addRecipe(drownedEgg);
 
         ShapedRecipe villagerEgg = new ShapedRecipe(new NamespacedKey(plugin, "villagerEgg"), new ItemStack(Material.VILLAGER_SPAWN_EGG));
