@@ -1,6 +1,9 @@
 package me.jurre.tcs.command;
 
 import me.jurre.tcs.Tcs;
+import net.md_5.bungee.api.chat.ClickEvent;
+import net.md_5.bungee.api.chat.HoverEvent;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
@@ -20,7 +23,12 @@ public class MapCommand implements TabExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Player player = (Player) sender;
-        player.sendMessage("§7View the Dynmap here here: §f§nhttp://51.254.149.249:8189/");
+
+        TextComponent message = new TextComponent( "§7View the Dynmap here: ");
+        TextComponent messageClick = new TextComponent("§f§nhttp://51.254.149.249:8189/");
+        messageClick.setClickEvent( new ClickEvent( ClickEvent.Action.OPEN_URL, "http://51.254.149.249:8189/" ) );
+        message.addExtra(messageClick);
+        player.spigot().sendMessage(message);
         return true;
     }
 
