@@ -91,6 +91,7 @@ public final class Tcs extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new AsyncChatListener(this), this);
         getServer().getPluginManager().registerEvents(new MonsterKillListener(this), this);
         getServer().getPluginManager().registerEvents(new ServerListPingListener(), this);
+        getServer().getPluginManager().registerEvents(new BlockBreakListener(this), this);
     }
 
     private void registerCommands() {

@@ -5,11 +5,13 @@ import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.Skull;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Base64;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -80,6 +82,29 @@ public class SkullCreator {
         notNull(id, "id");
 
         SkullMeta meta = (SkullMeta) item.getItemMeta();
+        meta.setOwningPlayer(Bukkit.getOfflinePlayer(id));
+        item.setItemMeta(meta);
+
+        return item;
+    }
+
+    /**
+     * Creates a player skull based on a UUID. 1.13 only.
+     *
+     * @param name The item name
+     * @param lore The item lore
+     * @param id The Player's UUID
+     * @return The head of the Player
+     */
+    public static ItemStack itemWithUuid(String name, List<String> lore, UUID id) {
+        notNull(name, "name");
+        notNull(lore, "lore");
+        notNull(id, "id");
+
+        ItemStack item = new ItemStack(Material.PLAYER_HEAD);
+        SkullMeta meta = (SkullMeta) item.getItemMeta();
+        meta.setDisplayName(name);
+        meta.setLore(lore);
         meta.setOwningPlayer(Bukkit.getOfflinePlayer(id));
         item.setItemMeta(meta);
 

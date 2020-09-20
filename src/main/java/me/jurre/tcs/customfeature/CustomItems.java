@@ -2,11 +2,14 @@ package me.jurre.tcs.customfeature;
 
 import me.jurre.tcs.Tcs;
 import me.jurre.tcs.util.ItemStackBuilder;
+import me.jurre.tcs.util.SkullCreator;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
 
+@SuppressWarnings("deprecation")
 public class CustomItems {
 
     private Tcs plugin;
@@ -18,111 +21,111 @@ public class CustomItems {
     public ItemStack powerEgg = ItemStackBuilder.build(Material.EGG, "§ePower Egg", true);
 
     // Common
-    public ItemStack pigHead = ItemStackBuilder.buildHead("§ePig Head", new ArrayList() {{
+    public ItemStack pigHead = SkullCreator.itemWithUuid("§ePig Head", new ArrayList() {{
         add("§7The head of a pig.");
         add("§7Rarity: §fCommon");
-    }}, "MHF_Pig");
+    }}, Bukkit.getOfflinePlayer("MHF_Pig").getUniqueId());
 
-    public ItemStack cowHead = ItemStackBuilder.buildHead("§eCow Head", new ArrayList() {{
+    public ItemStack cowHead = SkullCreator.itemWithUuid("§eCow Head", new ArrayList() {{
         add("§7The head of a cow.");
         add("§7Rarity: §fCommon");
-    }}, "MHF_Cow");
+    }}, Bukkit.getOfflinePlayer("MHF_Cow").getUniqueId());
 
-    public ItemStack chickenHead = ItemStackBuilder.buildHead("§eChicken Head", new ArrayList() {{
+    public ItemStack chickenHead = SkullCreator.itemWithUuid("§eChicken Head", new ArrayList() {{
         add("§7The head of a chicken.");
         add("§7Rarity: §fCommon");
-    }}, "MHF_Chicken");
+    }}, Bukkit.getOfflinePlayer("MHF_Chicken").getUniqueId());
 
-    public ItemStack sheepHead = ItemStackBuilder.buildHead("§eSheep Head", new ArrayList() {{
+    public ItemStack sheepHead = SkullCreator.itemWithUuid("§eSheep Head", new ArrayList() {{
         add("§7The head of a sheep.");
         add("§7Rarity: §fCommon");
-    }}, "MHF_Sheep");
+    }}, Bukkit.getOfflinePlayer("MHF_Sheep").getUniqueId());
 
-    public ItemStack squidHead = ItemStackBuilder.buildHead("§eSquid Head", new ArrayList() {{
+    public ItemStack squidHead = SkullCreator.itemWithUuid("§eSquid Head", new ArrayList() {{
         add("§7The head of a squid.");
         add("§7Rarity: §fCommon");
-    }}, "MHF_Squid");
+    }}, Bukkit.getOfflinePlayer("MHF_Squid").getUniqueId());
 
     // Rare
-    public ItemStack skeletonHead = ItemStackBuilder.buildHead("§eSkeleton Head", new ArrayList() {{
+    public ItemStack skeletonHead = SkullCreator.itemWithUuid("§eSkeleton Head", new ArrayList() {{
         add("§7The head of a skeleton.");
         add("§7Rarity: §bRare");
-    }}, "MHF_Skeleton");
+    }}, Bukkit.getOfflinePlayer("MHF_Skeleton").getUniqueId());
 
-    public ItemStack zombieHead = ItemStackBuilder.buildHead("§eZombie Head", new ArrayList() {{
+    public ItemStack zombieHead = SkullCreator.itemWithUuid("§eZombie Head", new ArrayList() {{
         add("§7The head of a zombie.");
         add("§7Rarity: §bRare");
-    }}, "MHF_Zombie");
+    }}, Bukkit.getOfflinePlayer("MHF_Zombie").getUniqueId());
 
-    public ItemStack witchHead = ItemStackBuilder.buildHead("§eWitch Head", new ArrayList() {{
+    public ItemStack witchHead = SkullCreator.itemWithUuid("§eWitch Head", new ArrayList() {{
         add("§7The head of a witch.");
         add("§7Rarity: §bRare");
-    }}, "MHF_Witch");
+    }}, Bukkit.getOfflinePlayer("MHF_Witch").getUniqueId());
 
-    public ItemStack endermanHead = ItemStackBuilder.buildHead("§eEnderman Head", new ArrayList() {{
+    public ItemStack endermanHead = SkullCreator.itemWithUuid("§eEnderman Head", new ArrayList() {{
         add("§7The head of an enderman.");
         add("§7Rarity: §bRare");
-    }}, "MHF_Enderman");
+    }}, Bukkit.getOfflinePlayer("MHF_Enderman").getUniqueId());
 
-    public ItemStack ocelotHead = ItemStackBuilder.buildHead("§eOcelot Head", new ArrayList() {{
+    public ItemStack ocelotHead = SkullCreator.itemWithUuid("§eOcelot Head", new ArrayList() {{
         add("§7The head of an ocelot.");
         add("§7Rarity: §bRare");
-    }}, "MHF_Ocelot");
+    }}, Bukkit.getOfflinePlayer("MHF_Ocelot").getUniqueId());
 
-    public ItemStack drownedHead = ItemStackBuilder.buildHead("§eDrowned Head", new ArrayList() {{
+    public ItemStack drownedHead = SkullCreator.itemWithUuid("§eDrowned Head", new ArrayList() {{
         add("§7The head of a drowned.");
         add("§7Rarity: §bRare");
-    }}, "thakeon");
+    }}, Bukkit.getOfflinePlayer("0l1v3_01l").getUniqueId());
 
     // Epic
-    public ItemStack villagerHead = ItemStackBuilder.buildHead("§eVillager Head", new ArrayList() {{
+    public ItemStack villagerHead = SkullCreator.itemWithUuid("§eVillager Head", new ArrayList() {{
         add("§7The head of a villager.");
         add("§7Rarity: §5Epic");
-    }}, "MHF_Villager");
+    }}, Bukkit.getOfflinePlayer("MHF_Villager").getUniqueId());
 
-    public ItemStack slimeHead = ItemStackBuilder.buildHead("§eSlime Head", new ArrayList() {{
+    public ItemStack slimeHead = SkullCreator.itemWithUuid("§eSlime Head", new ArrayList() {{
         add("§7The head of a slime.");
         add("§7Rarity: §5Epic");
-    }}, "MHF_Slime");
+    }}, Bukkit.getOfflinePlayer("MHF_Slime").getUniqueId());
 
-    public ItemStack magmaCubeHead = ItemStackBuilder.buildHead("§eMagma Cube Head", new ArrayList() {{
+    public ItemStack magmaCubeHead = SkullCreator.itemWithUuid("§eMagma Cube Head", new ArrayList() {{
         add("§7The head of a magma cube.");
         add("§7Rarity: §5Epic");
-    }}, "MHF_LavaSlime");
+    }}, Bukkit.getOfflinePlayer("MHF_LavaSlime").getUniqueId());
 
-    public ItemStack blazeHead = ItemStackBuilder.buildHead("§eBlaze Head", new ArrayList() {{
+    public ItemStack blazeHead = SkullCreator.itemWithUuid("§eBlaze Head", new ArrayList() {{
         add("§7The head of a blaze.");
         add("§7Rarity: §5Epic");
-    }}, "MHF_Blaze");
+    }}, Bukkit.getOfflinePlayer("MHF_Blaze").getUniqueId());
 
-    public ItemStack guardianHead = ItemStackBuilder.buildHead("§eGuardian Head", new ArrayList() {{
+    public ItemStack guardianHead = SkullCreator.itemWithUuid("§eGuardian Head", new ArrayList() {{
         add("§7The head of a guardian.");
         add("§7Rarity: §5Epic");
-    }}, "MHF_Guardian");
+    }}, Bukkit.getOfflinePlayer("MHF_Guardian").getUniqueId());
 
-    public ItemStack caveSpiderHead = ItemStackBuilder.buildHead("§eCave Spider Head", new ArrayList() {{
+    public ItemStack caveSpiderHead = SkullCreator.itemWithUuid("§eCave Spider Head", new ArrayList() {{
         add("§7The head of a cave spider.");
         add("§7Rarity: §5Epic");
-    }}, "GrinningSkeleton");
+    }}, Bukkit.getOfflinePlayer("GrinningSkeleton").getUniqueId());
 
     // Legendary
-    public ItemStack elderGuardianHead = ItemStackBuilder.buildHead("§eElder Guardian Head", new ArrayList() {{
+    public ItemStack elderGuardianHead = SkullCreator.itemWithUuid("§eElder Guardian Head", new ArrayList() {{
         add("§7The head of an elder guardian.");
         add("§7Rarity: §aLegendary");
-    }}, "MHF_EGuardian");
+    }}, Bukkit.getOfflinePlayer("MHF_EGuardian").getUniqueId());
 
-    public ItemStack witherHead = ItemStackBuilder.buildHead("§eWither Head", new ArrayList() {{
+    public ItemStack witherHead = SkullCreator.itemWithUuid("§eWither Head", new ArrayList() {{
         add("§7The head of a wither.");
         add("§7Rarity: §aLegendary");
-    }}, "MHF_Wither");
+    }}, Bukkit.getOfflinePlayer("MHF_Wither").getUniqueId());
 
-    public ItemStack ironGolemHead = ItemStackBuilder.buildHead("§eIron Golem Head", new ArrayList() {{
+    public ItemStack ironGolemHead = SkullCreator.itemWithUuid("§eIron Golem Head", new ArrayList() {{
         add("§7The head of an iron golem.");
         add("§7Rarity: §aLegendary");
-    }}, "MHF_Golem");
+    }}, Bukkit.getOfflinePlayer("MHF_Golem").getUniqueId());
 
-    public ItemStack ghastHead = ItemStackBuilder.buildHead("§eGhast Head", new ArrayList() {{
+    public ItemStack ghastHead = SkullCreator.itemWithUuid("§eGhast Head", new ArrayList() {{
         add("§7The head of a ghast.");
         add("§7Rarity: §aLegendary");
-    }}, "MHF_Ghast");
+    }}, Bukkit.getOfflinePlayer("MHF_Ghast").getUniqueId());
 }
