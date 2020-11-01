@@ -1,7 +1,7 @@
-name: Tcs
+name: TCS
 version: ${project.version}
 main: me.jurre.tcs.Tcs
-api-version: 1.13
+api-version: 1.16
 authors: [Jurre]
 description: Unofficial TCS Minecraft plugin
 website: https://www.jurre.me/
