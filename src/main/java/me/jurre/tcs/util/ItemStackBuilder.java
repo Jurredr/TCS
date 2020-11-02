@@ -8,7 +8,6 @@ import org.bukkit.inventory.meta.SkullMeta;
 
 import java.util.ArrayList;
 
-@SuppressWarnings("deprecation")
 public class ItemStackBuilder {
 
     public static ItemStack build(Material material, String name, ArrayList lore) {
@@ -73,10 +72,10 @@ public class ItemStackBuilder {
     public static ItemStack buildHead(String name, ArrayList lore, String owner) {
         ItemStack item = new ItemStack(Material.PLAYER_HEAD);
         SkullMeta meta = (SkullMeta) item.getItemMeta();
-        meta.setOwner(owner);
         meta.setDisplayName(name);
         meta.setLore(lore);
         item.setItemMeta(meta);
+        SkullCreator.setTexture(item, owner);
 
         return item;
     }
@@ -84,21 +83,9 @@ public class ItemStackBuilder {
     public static ItemStack buildHead(String name, String owner) {
         ItemStack item = new ItemStack(Material.PLAYER_HEAD);
         SkullMeta meta = (SkullMeta) item.getItemMeta();
-        meta.setOwner(owner);
         meta.setDisplayName(name);
         item.setItemMeta(meta);
-        item.setAmount(1);
-
-        return item;
-    }
-
-    public static ItemStack buildHeadFromUrl(String name, ArrayList lore, String url) {
-        ItemStack item = SkullCreator.itemFromBase64(url);
-        SkullMeta meta = (SkullMeta) item.getItemMeta();
-        meta.setOwner(url);
-        meta.setDisplayName(name);
-        meta.setLore(lore);
-        item.setItemMeta(meta);
+        SkullCreator.setTexture(item, owner);
 
         return item;
     }
